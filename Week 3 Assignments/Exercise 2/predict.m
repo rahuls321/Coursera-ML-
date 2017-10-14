@@ -15,8 +15,13 @@ p = zeros(m, 1);
 %               You should set p to a vector of 0's and 1's
 %
 
-p = sigmoid(theta * X) >= 0.5
+p = sigmoid(X * theta);
 
+idt_1 = find(p >= 0.5);
+idt_0 = find(p < 0.5);
+
+p(idt_1) = ones(size(idt_1));
+p(idt_0) = zeros(size(idt_0));
 
 
 
